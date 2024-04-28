@@ -2,18 +2,19 @@ package com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.s
 
 import com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.entities.Order;
 
-//Responsavel de operações relacionado a pedito
-//Serviço de pedido
+//Responsavel pelas operações do pedido
 public class OrderService {
 
-
-    //Responsavel or operações relacionado a pedito,  Exemplo Valor total: R$ 720.00
-    public double total(Order order){
-
-
-
-        return 10;
+    ShippingService shippingService;
+    public OrderService(ShippingService shippingService) {
+        this.shippingService = shippingService;
     }
 
+    public double total(Order order){
+
+        return (order.getBasic() - (order.getBasic() * order.getDiscount() / 100)) + shippingService.shipment(order);
+    }
 
 }
+
+
