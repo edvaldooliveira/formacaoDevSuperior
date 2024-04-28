@@ -2,6 +2,7 @@ package com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia;
 
 
 import com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.entities.Order;
+import com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.services.OrderService;
 import com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.services.ShippingService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,13 +21,17 @@ public class DesafiocomponentesinjecaodependenciaApplication  implements Command
 	@Override
 	public void run(String... args) throws Exception {
 
-		Order order = new Order(1034, 0D, 20D);
+		Order order = new Order(1309, 201D, 0D);
 		ShippingService shippingService = new ShippingService();
 
-		System.out.println("Resultado = " + shippingService.shipment(order));
+		OrderService orderService = new OrderService(shippingService);
 
 
+		//System.out.println("Frete = " + shippingService.shipment(order));
 
+		System.out.println("Pedido Código = " + order.getCode());
+
+		System.out.println("Valor compra = " + orderService.total(order));
 
 	}
 }

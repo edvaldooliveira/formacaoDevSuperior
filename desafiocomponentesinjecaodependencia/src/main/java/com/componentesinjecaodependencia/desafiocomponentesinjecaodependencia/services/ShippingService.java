@@ -2,16 +2,13 @@ package com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.s
 
 import com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.entities.Order;
 
-//Responsavel por operações relacionado a frete
-//Serviço de entrega
+//Responsavel por operações relacionado ao frete
 public class ShippingService {
 
-
-    //Método responsavel por operaçoes relacionado a frete
     public double shipment(Order order){
-        if(order.getBasec() <= 100){
+        if(order.getBasic() <= 100){
             return 20;
-        }else if (order.getBasec()  <= 200){
+        }else if (order.getBasic()  <= 200){
             return 12;
         }else {
               return 0;

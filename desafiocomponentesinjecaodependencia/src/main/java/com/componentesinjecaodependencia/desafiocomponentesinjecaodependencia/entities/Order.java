@@ -1,18 +1,17 @@
 package com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.entities;
 
-//clase de pedido
 public class Order {
     private Integer code;
-    private Double basec;
+    private Double basic;
     private Double discount;
 
     public Order() {
 
     }
 
-    public Order(Integer code, Double basec, Double discount) {
+    public Order(Integer code, Double basic, Double discount) {
         this.code = code;
-        this.basec = basec;
+        this.basic = basic;
         this.discount = discount;
     }
 
@@ -24,12 +23,12 @@ public class Order {
         this.code = code;
     }
 
-    public Double getBasec() {
-        return basec;
+    public Double getBasic() {
+        return basic;
     }
 
-    public void setBasec(Double basec) {
-        this.basec = basec;
+    public void setBasic(Double basic) {
+        this.basic = basic;
     }
 
     public Double getDiscount() {
