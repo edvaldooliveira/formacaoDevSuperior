@@ -1,5 +1,9 @@
 package com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.entities;
 
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class Order {
     private Integer code;
     private Double basic;
