@@ -1,8 +1,10 @@
 package com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.services;
 
 import com.componentesinjecaodependencia.desafiocomponentesinjecaodependencia.entities.Order;
+import org.springframework.stereotype.Service;
 
 //Responsavel por operações relacionado ao frete
+@Service
 public class ShippingService {
 
     public double shipment(Order order){
@@ -15,3 +17,4 @@ public class ShippingService {
             }
         }
 }
+
