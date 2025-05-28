@@ -33,4 +33,19 @@ public class ClientService {
         return result.map(x -> new ClientDTO(x));
     }
 
+    public ClientDTO insert(ClientDTO dto) {
+
+        Client entity = new Client();
+        copyDtoToEntity(dto, entity);
+       entity = repository.save(entity);
+
+        return new ClientDTO(entity);
+    }
+
+    private void copyDtoToEntity(ClientDTO dto, Client entity) {
+        entity.setName(dto.getName());
+
+    }
+
+
 }
