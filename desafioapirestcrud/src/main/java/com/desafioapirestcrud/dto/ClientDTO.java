@@ -11,10 +11,13 @@ public class ClientDTO {
     private String name;
     private String cpf;
     private Double income;
-
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
     private Integer children;
+
+    public ClientDTO() {
+    }
 
     public ClientDTO(Long id, String name, String cpf, Double income, LocalDate birthDate, Integer children) {
         this.id = id;
