@@ -15,7 +15,7 @@ public class Client {
     private String cpf;
     private Double income;
 
-    @Column(name = "birth_date")
+    @Column(name = "BIRTH_DATE")
     private LocalDate birthDate;
 
     private Integer children;
@@ -91,6 +91,5 @@ public class Client {
                 ", children=" + children +
                 '}';
     }
-
 
 }

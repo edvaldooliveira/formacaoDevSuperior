@@ -42,6 +42,16 @@ public class ClientService {
         return new ClientDTO(entity);
     }
 
+
+    @Transactional
+    public ClientDTO update(Long id, ClientDTO dto) {
+        Client entity = repository.getReferenceById(id);
+        copyDtoToEntity(dto, entity);
+        entity = repository.save(entity);
+        return new ClientDTO(entity);
+
+
+    }
     private void copyDtoToEntity(ClientDTO dto, Client entity) {
         entity.setName(dto.getName());
         entity.setCpf(dto.getCpf());
@@ -49,4 +59,21 @@ public class ClientService {
         entity.setBirthDate(dto.getBirthDate());
         entity.setChildren(dto.getChildren());
     }
+
+
+
+    /*
+        @Transactional
+    public ClienteDTO update(Long id, ClienteDTO dto){
+        try {
+            Cliente entity = repository.getReferenceById(id);
+            copyDtoToEntity(dto, entity);
+            entity = repository.save(entity);
+            return new ClienteDTO(entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
+
+    }
+     */
 }

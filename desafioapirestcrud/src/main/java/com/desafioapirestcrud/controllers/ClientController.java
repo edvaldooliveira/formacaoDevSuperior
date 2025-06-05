@@ -18,7 +18,7 @@ import java.net.URI;
 
 
 @RestController
-@RequestMapping(value = "/cliente")
+@RequestMapping(value = "/clients")
 public class ClientController {
 
     @Autowired
@@ -43,6 +43,22 @@ public class ClientController {
                 .buildAndExpand(dto.getId()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @Valid @RequestBody ClientDTO dto) {
+        dto = service.update(id, dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(dto.getId()).toUri();
+        return ResponseEntity.created(uri).body(dto);
+    }
+
+    /*
+     @PutMapping(value = "/{id}")
+    public ResponseEntity<ClienteDTO> update(@PathVariable Long id,@Valid @RequestBody ClienteDTO dto){
+        dto = service.update(id, dto);
+        return ResponseEntity.ok(dto);
+    }
+     */
 
 
 }
