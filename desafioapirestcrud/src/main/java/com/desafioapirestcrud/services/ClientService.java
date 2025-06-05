@@ -4,12 +4,14 @@ import com.desafioapirestcrud.clientRepository.ClientRepository;
 
 import com.desafioapirestcrud.dto.ClientDTO;
 import com.desafioapirestcrud.entities.Client;
+import com.desafioapirestcrud.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -44,14 +46,18 @@ public class ClientService {
 
 
     @Transactional
-    public ClientDTO update(Long id, ClientDTO dto) {
-        Client entity = repository.getReferenceById(id);
-        copyDtoToEntity(dto, entity);
-        entity = repository.save(entity);
-        return new ClientDTO(entity);
-
+    public ClientDTO update(Long id, ClientDTO dto){
+        try {
+            Client entity = repository.getReferenceById(id);
+            copyDtoToEntity(dto, entity);
+            entity = repository.save(entity);
+            return new ClientDTO(entity);
+        } catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
+        }
 
     }
+
     private void copyDtoToEntity(ClientDTO dto, Client entity) {
         entity.setName(dto.getName());
         entity.setCpf(dto.getCpf());
