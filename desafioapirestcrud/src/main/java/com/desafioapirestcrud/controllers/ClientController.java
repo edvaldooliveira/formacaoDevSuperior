@@ -1,7 +1,5 @@
 package com.desafioapirestcrud.controllers;
 
-
-
 import com.desafioapirestcrud.dto.ClientDTO;
 
 import com.desafioapirestcrud.services.ClientService;
@@ -25,9 +23,9 @@ public class ClientController {
     ClientService service;
 
     @GetMapping(value = "/{id}")
-    public ClientDTO findById(@PathVariable Long id) {
+    public ResponseEntity<ClientDTO>  findById(@PathVariable Long id) {
        ClientDTO dto = service.findById(id);
-        return dto;
+        return ResponseEntity.ok(dto);
 
     }
 

@@ -66,20 +66,4 @@ public class ClientService {
         entity.setChildren(dto.getChildren());
     }
 
-
-
-    /*
-        @Transactional
-    public ClienteDTO update(Long id, ClienteDTO dto){
-        try {
-            Cliente entity = repository.getReferenceById(id);
-            copyDtoToEntity(dto, entity);
-            entity = repository.save(entity);
-            return new ClienteDTO(entity);
-        } catch (EntityNotFoundException e) {
-            throw new ResourceNotFoundException("Recurso não encontrado");
-        }
-
-    }
-     */
 }
