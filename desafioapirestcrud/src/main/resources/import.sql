@@ -10,3 +10,15 @@ INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Atônio
 INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Madalena Pereira', '878.874.971.18', 3561, '1977-08-12',0 );
 INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Hilton Gonçalves', '348.874.874.56', 1248, '1985-04-11',5 );
 INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Renan Dias', '714.874.124.00', 1700, '1996-01-20',2 );
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Rafael Coutinho', '321.654.987-01', 2980, '1984-11-02', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Helena Duarte', '147.258.369-74', 1520, '1972-06-18', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Thiago Ribeiro', '963.852.741-36', 4320, '1990-03-09', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Camila Nunes', '741.852.963-22', 3180, '1988-01-27', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Eduarda Campos', '258.369.147-88', 2050, '1958-08-14', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Fernando Azevedo', '654.321.789-55', 9970, '1995-04-05', 4);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Sabrina Lopes', '852.963.741-99', 2750, '1969-12-11', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Bruno Silveira', '369.741.258-00', 3800, '2003-07-22', 0);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Isabela Carvalho', '147.369.258-10', 7120, '1982-10-10', 3);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Rodrigo Sales', '951.753.456-80', 4650, '1979-02-28', 2);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Patrícia Andrade', '753.159.852-45', 1890, '1991-09-30', 1);
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('João Esteves', '369.258.147-66', 5400, '2001-05-17', 2);
