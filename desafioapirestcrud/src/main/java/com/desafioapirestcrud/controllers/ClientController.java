@@ -14,7 +14,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 
-
 @RestController
 @RequestMapping(value = "/clients")
 public class ClientController {
@@ -28,7 +27,6 @@ public class ClientController {
         return ResponseEntity.ok(dto);
 
     }
-
     @GetMapping
     public Page<ClientDTO> findAll(Pageable pageable) {
        return service.findAll(pageable);

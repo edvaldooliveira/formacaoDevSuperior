@@ -1,17 +1,26 @@
 package com.desafioapirestcrud.dto;
 
 import com.desafioapirestcrud.entities.Client;
-import jakarta.persistence.Column;
-
+import jakarta.validation.constraints.*;
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+
+    @Size(min = 3, max = 80, message = "Nome precisa ter de 3 a 80 caracteres")
+    @NotBlank(message = "Campo requerido")
     private String name;
+
+    @Size(min = 11, max = 11, message = "CPF dev ter 11 caracteres")
+    @NotBlank(message = "Campo requerido")
     private String cpf;
+
+    @DecimalMin(value = "1", message = "Campo deve ser positivo")
+    @NotNull(message = "Campo obrigatório")
     private Double income;
 
+    @NotNull(message = "Data obrigatória")
     private LocalDate birthDate;
 
     private Integer children;

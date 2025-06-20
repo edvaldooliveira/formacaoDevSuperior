@@ -1,7 +1,6 @@
 package com.desafioapirestcrud.services;
 
 import com.desafioapirestcrud.clientRepository.ClientRepository;
-
 import com.desafioapirestcrud.dto.ClientDTO;
 import com.desafioapirestcrud.entities.Client;
 import com.desafioapirestcrud.services.exceptions.DatabaseException;
@@ -26,12 +25,11 @@ public class ClientService {
     ClientRepository repository;
 
     @Transactional(readOnly = true)
-   public ClientDTO findById(Long id){
-    Optional<Client> result = repository.findById(id);
-       Client client = result.get();
-       ClientDTO dto = new ClientDTO(client);
-       return dto;
-   }
+    public ClientDTO findById(Long id){
+        Client client = repository.findById(id).orElseThrow(
+                ()-> new ResourceNotFoundException("Recurso não encontrado"));
+        return new ClientDTO(client);
+    }
 
    @Transactional(readOnly = true)
     public Page<ClientDTO> findAll(Pageable pageable) {
@@ -60,10 +58,9 @@ public class ClientService {
         }
 
     }
-
     @Transactional(propagation = Propagation.SUPPORTS)
-    public void delete(Long id) {
-        if (!repository.existsById(id)) {
+    public void delete(Long id){
+        if (!repository.existsById(id)){
             throw new ResourceNotFoundException("Recurso não encontrado");
         }
         try {
@@ -73,7 +70,6 @@ public class ClientService {
         }
 
     }
-
     private void copyDtoToEntity(ClientDTO dto, Client entity) {
         entity.setName(dto.getName());
         entity.setCpf(dto.getCpf());
